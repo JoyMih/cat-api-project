@@ -1,3 +1,7 @@
+# Overview
+This practice project is for educational purposes and utilizes the Free Cat API: https://thecatapi.com/
+The live netlify demo link is here: 
+
 # React + Vite
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
