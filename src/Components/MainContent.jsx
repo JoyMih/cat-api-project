@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 /* Validate the props passed to a component. This ensures that the component receives the correct types of props and helps catch potential bugs */
 import './../App.css';
 import catLogo from './../assets/catLogo.png';
-import { catUrl } from '../secrets/catApiUrl';
+// import { catUrl } from '../secrets/catApiUrl'; // Note: This has been disabled due to conflict with deployment on the live netlify link. Instead we will be inputting the api endpoint directly below.
 
 function MainContent({ message }) {
     const cardRef = useRef(null); // useRef for storing persisting elements and data without triggering re-renders
@@ -14,7 +14,7 @@ function MainContent({ message }) {
     useEffect(() => {
         const worker = new Worker('./worker.js');
         const catApiKey = import.meta.env.CAT_API_KEY;
-        const url = `${catUrl}&${catApiKey}`;
+        const url = `https://api.thecatapi.com/v1/images/search?limit=1&${catApiKey}`;
 
         // console.log(url); // Note: As a test, we will see that the api key is read as undefined on console
 
