@@ -3,26 +3,29 @@ onmessage = async function (event) {
     // Handling the message
 
     if (task === "fetchAll") {
-        /* Old scrapped code that didn't incorporate await and didn't rely on async */
-        // Promise.all([fetch(url), fetch(url)]).then(responses => Promise.all(responses.map(r => r.json())))
-        //     .then(data => {
-        //         postMessage({ task, data })
-        //     })
-        //     .catch(error => {
-        //         postMessage({ error: 'Failed to fetch multiple images' });
-        //     })
+        /* Old code that didn't incorporate await and didn't rely on async, but did utilize .then() */
+        Promise.all([fetch(url), fetch(url)]).then(responses => Promise.all(responses.map(r => r.json())))
+            .then(data => {
+                postMessage({ task, data })
+            })
+            .catch(error => {
+                console.error("Error in fetchAll:", error); // Logging the caught error to browser console
+                postMessage({ error: 'Failed to fetch multiple images' });
+            });
 
-        try {
-            const responses = await Promise.all([fetch(url), fetch(url)]);
-            const jsonData = await Promise.all(responses.map(r => r.json()));
+        /* The below lines 17 - 27 work perfectly fine, but in order to try and practice using the .then() syntax, I instead used the above method -- as opposed to the "try, catch" way below in lines 29 - 55 */
+        
+        // try {
+        //     const responses = await Promise.all([fetch(url), fetch(url)]);
+        //     const jsonData = await Promise.all(responses.map(r => r.json()));
 
-            postMessage({ task: "fetchAll", data: jsonData }); // Communicating with the Main Thread over on MainContent.jsx
-            // Note: Promise.all() naturally returns you an array of data, so jsonData will be an array of results by default
-        }
+        //     postMessage({ task: "fetchAll", data: jsonData }); // Communicating with the Main Thread over on MainContent.jsx
+        //     // Note: Promise.all() naturally returns you an array of data, so jsonData will be an array of results by default
+        // }
 
-        catch (error) {
-            postMessage({ task: "fetchAll", error });
-        }
+        // catch (error) {
+        //     postMessage({ task: "fetchAll", error });
+        // }
 
     } if (task === "fetchAny") {
         /* Old scrapped code that didn't incorporate await and didn't rely on async */

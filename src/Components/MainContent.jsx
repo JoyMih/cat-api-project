@@ -79,7 +79,7 @@ function MainContent({ message }) {
             worker.postMessage({ task: "fetchAny", url }); // Communicating with the web worker
         }
 
-        // Web worker 
+        // Web worker (web worker file is in public folder ude to it being read as an HTML document instead of js)
         worker.onmessage = (event) => {
             const { task, data, error } = event.data; // Destructuring
             if (error) {
