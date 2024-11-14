@@ -1,9 +1,10 @@
-onmessage = async function (event) {
+/* PLEASE READ: // Here is the async keyword in line 2 */
+onmessage = async function (event) {  
     const { task, url } = event.data;
     // Handling the message
 
+/* PLEASE READ: Below are the .then() chain, Promise.all(), Promise.any, .json() method, fetch() method, await keyword */
     if (task === "fetchAll") {
-        /* Old code that didn't incorporate await and didn't rely on async, but did utilize .then() */
         Promise.all([fetch(url), fetch(url)]).then(responses => Promise.all(responses.map(r => r.json())))
             .then(data => {
                 postMessage({ task, data })
@@ -13,7 +14,7 @@ onmessage = async function (event) {
                 postMessage({ error: 'Failed to fetch multiple images' });
             });
 
-        /* The below lines 17 - 27 work perfectly fine, but in order to try and practice using the .then() syntax, I instead used the above method -- as opposed to the "try, catch" way below in lines 29 - 55 */
+        /* The below lines 17 - 27 work perfectly fine, but in order to practice using the .then() syntax, I instead used the above method -- as opposed to the "try, catch" way below in lines 29 - 55 */
         
         // try {
         //     const responses = await Promise.all([fetch(url), fetch(url)]);
