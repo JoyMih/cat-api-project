@@ -1,3 +1,6 @@
+// *** PLEASE READ: The fetch(), .then(), .json(), async, await, Promise.all(), Promise.any() are in the worker.js file in the PUBLIC FOLDER
+// *** NAVIGATE TO PUBLIC FOLDER. NAVIGATE TO WORKER.JS!
+
 import { useRef, useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 /* Validate the props passed to a component. This ensures that the component receives the correct types of props and helps catch potential bugs */
@@ -80,7 +83,8 @@ function MainContent({ message }) {
             worker.postMessage({ task: "fetchAny", url }); // Communicating with the web worker
         }
 
-        // Web worker (web worker file is in public folder ude to it being read as an HTML document instead of js)
+        // Web worker (web worker file is in public folder due to it being read as an HTML document instead of js)
+        // *** Note: PLEASE look at the worker.js file for the project requirement elements!!!
         worker.onmessage = (event) => {
             const { task, data, error } = event.data; // Destructuring
             if (error) {
