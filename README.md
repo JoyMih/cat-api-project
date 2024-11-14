@@ -3,6 +3,16 @@ This practice project is for educational purposes and utilizes the Free Cat API:
 
 The live netlify demo link is here: https://catspotlights.netlify.app/
 
+Project requirements summary:
+- worker.js file --> in the public folder
+- async functions --> in worker.js file and MainContent.jsx
+- await keyword --> in worker.js file
+- .fetch() method --> in worker.js file
+- Promise.all --> in worker.js file
+- .then() chaining --> in worker.js file
+- Promise.all --> in worker.js file
+-  .json() method --> in worker.js file
+
 # React + Vite
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
