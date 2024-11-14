@@ -10,7 +10,8 @@ function MainContent({ message }) {
     const btnRef = useRef(null); // useRef for storing persisting elements and data without triggering re-renders
     const [count, setCount] = useState(0) // useState for triggering re-renders brought on by state updates
 
-    // We use fetch(), .then(), .json(), async, await, Promise.all(), Promise.any()
+    // *** PLEASE READ: The fetch(), .then(), .json(), async, await, Promise.all(), Promise.any() are in the worker.js file in the PUBLIC FOLDER
+    // *** NAVIGATE TO PUBLIC FOLDER. NAVIGATE TO WORKER.JS!
     useEffect(() => {
         const worker = new Worker('./worker.js');
         const catApiKey = import.meta.env.CAT_API_KEY;
