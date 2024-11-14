@@ -6,7 +6,7 @@ The live netlify demo link is here: https://catspotlights.netlify.app/
 Project requirements summary:
 - worker.js file --> in the public folder
 - web worker function --> in the MainContent.jsx file
-- async functions --> in worker.js file and MainContent.jsx file
+- async function --> in worker.js file and MainContent.jsx file
 - await keyword --> in worker.js file
 - .fetch() method --> in worker.js file
 - Promise.all --> in worker.js file
