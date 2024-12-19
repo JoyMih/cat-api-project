@@ -17,7 +17,7 @@ function MainContent({ message }) {
     // *** NAVIGATE TO PUBLIC FOLDER. NAVIGATE TO WORKER.JS!
     useEffect(() => {
         const worker = new Worker('./worker.js');
-        const catApiKey = import.meta.env.CAT_API_KEY;
+        const catApiKey = import.meta.env.VITE_CAT_API_KEY;
         const url = `https://api.thecatapi.com/v1/images/search?limit=1&${catApiKey}`;
 
         // console.log(url); // Note: As a test, we will see that the api key is read as undefined on console
